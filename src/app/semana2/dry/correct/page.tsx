@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 
 interface User {
   name: string
+  username: string
+  email: string
 }
 
 interface Post {
@@ -45,33 +47,39 @@ const page = () => {
     <div className='main'>
       <div className='users'>
         <h1>Usuarios:</h1>
-        <ul>
-          <li>Nombre usuario: {users[0]?.name}</li>
-          <li>Nombre usuario: {users[1]?.name}</li>
-          <li>Nombre usuario: {users[2]?.name}</li>
-        </ul>
+        <div>
+          <h3>{users[0]?.name}</h3>
+          <p>{users[0]?.username}</p>
+          <p>{users[0]?.email}</p>
+        </div>
+        <div>
+          <h3>{users[1]?.name}</h3>
+          <p>{users[1]?.username}</p>
+          <p>{users[1]?.email}</p>
+        </div>
+        <div>
+          <h3>{users[2]?.name}</h3>
+          <p>{users[2]?.username}</p>
+          <p>{users[2]?.email}</p>
+        </div>
+        <div>
+          <h3>{users[3]?.name}</h3>
+          <p>{users[3]?.username}</p>
+          <p>{users[3]?.email}</p>
+        </div>
+        <div>
+          <h3>{users[4]?.name}</h3>
+          <p>{users[4]?.username}</p>
+          <p>{users[4]?.email}</p>
+        </div>
       </div>
       <div className='posts'>
         <h1>Posts:</h1>
-        <ul>
-          <li>Post: {posts[0]?.title}</li>
-          <li>Post: {posts[1]?.title}</li>
-          <li>Post: {posts[2]?.title}</li>
-        </ul>
+        <p>Post: {posts[0]?.title}</p>
       </div>
       <div className='photos'>
         <h1>Fotos:</h1>
-        <ul>
-          <li>
-            <img src={photos[0]?.url} alt='Photo' />
-          </li>
-          <li>
-            <img src={photos[1]?.url} alt='Photo' />
-          </li>
-          <li>
-            <img src={photos[2]?.url} alt='Photo' />
-          </li>
-        </ul>
+        <img src={photos[0]?.url} alt='Photo' />
       </div>
     </div>
   )
