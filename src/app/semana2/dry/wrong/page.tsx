@@ -49,29 +49,16 @@ const page = () => {
           <li>Nombre usuario: {users[0]?.name}</li>
           <li>Nombre usuario: {users[1]?.name}</li>
           <li>Nombre usuario: {users[2]?.name}</li>
+          <li>Nombre usuario: {users[4]?.name}</li>
         </ul>
       </div>
       <div className='posts'>
         <h1>Posts:</h1>
-        <ul>
-          <li>Post: {posts[0]?.title}</li>
-          <li>Post: {posts[1]?.title}</li>
-          <li>Post: {posts[2]?.title}</li>
-        </ul>
+        <p>Post: {posts[0]?.title}</p>
       </div>
       <div className='photos'>
         <h1>Fotos:</h1>
-        <ul>
-          <li>
-            <img src={photos[0]?.url} alt='Photo' />
-          </li>
-          <li>
-            <img src={photos[1]?.url} alt='Photo' />
-          </li>
-          <li>
-            <img src={photos[2]?.url} alt='Photo' />
-          </li>
-        </ul>
+        <img src={photos[0]?.url} alt='Photo' />
       </div>
     </div>
   )
