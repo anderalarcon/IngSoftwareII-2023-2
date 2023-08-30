@@ -1,77 +1,40 @@
 'use client'
+import { IPhoto, IPost, IUser } from '@/interfaces/interfaces'
+import { fetchEndpoint } from '@/utilities/functions'
 import React, { useEffect, useState } from 'react'
 
-interface User {
-  name: string
-  username: string
-  email: string
-}
-
-interface Post {
-  title: string
-}
-
-interface Photo {
-  url: string
-}
-
 const page = () => {
-  const [users, setUsers] = useState<User[]>([])
-  const [posts, setPosts] = useState<Post[]>([])
-  const [photos, setPhotos] = useState<Photo[]>([])
+  const [users, setUsers] = useState<IUser[]>([])
+  const [posts, setPosts] = useState<IPost[]>([])
+  const [photos, setPhotos] = useState<IPhoto[]>([])
 
+  const renderUsers = () => {
+    const slicedUsers = users.slice(0, 5)
+    return slicedUsers.map((user:IUser) => {
+      return (
+        <div>
+          <h3>{user?.name}</h3>
+          <p>{user?.username}</p>
+          <p>{user?.email}</p>
+        </div>
+      )
+    })
+  }
+  
   useEffect(() => {
-    const fetchUsers = () => {
-      fetch('https://jsonplaceholder.typicode.com/users/')
-        .then((response) => response.json())
-        .then((json) => setUsers(json))
+    const fetchData = () => {
+      fetchEndpoint('https://jsonplaceholder.typicode.com/users/', setUsers)
+      fetchEndpoint('https://jsonplaceholder.typicode.com/posts/', setPosts)
+      fetchEndpoint('https://jsonplaceholder.typicode.com/photos/', setPhotos)
     }
-
-    const fetchPosts = () => {
-      fetch('https://jsonplaceholder.typicode.com/posts/')
-        .then((response) => response.json())
-        .then((json) => setPosts(json))
-    }
-
-    const fetchPhotos = () => {
-      fetch('https://jsonplaceholder.typicode.com/photos/')
-        .then((response) => response.json())
-        .then((json) => setPhotos(json))
-    }
-    fetchUsers()
-    fetchPosts()
-    fetchPhotos()
+    fetchData()
   }, [])
 
   return (
-    <div className='main'>
+    <div className='container'>
       <div className='users'>
         <h1>Usuarios:</h1>
-        <div>
-          <h3>{users[0]?.name}</h3>
-          <p>{users[0]?.username}</p>
-          <p>{users[0]?.email}</p>
-        </div>
-        <div>
-          <h3>{users[1]?.name}</h3>
-          <p>{users[1]?.username}</p>
-          <p>{users[1]?.email}</p>
-        </div>
-        <div>
-          <h3>{users[2]?.name}</h3>
-          <p>{users[2]?.username}</p>
-          <p>{users[2]?.email}</p>
-        </div>
-        <div>
-          <h3>{users[3]?.name}</h3>
-          <p>{users[3]?.username}</p>
-          <p>{users[3]?.email}</p>
-        </div>
-        <div>
-          <h3>{users[4]?.name}</h3>
-          <p>{users[4]?.username}</p>
-          <p>{users[4]?.email}</p>
-        </div>
+        {renderUsers()}
       </div>
       <div className='posts'>
         <h1>Posts:</h1>
@@ -79,7 +42,7 @@ const page = () => {
       </div>
       <div className='photos'>
         <h1>Fotos:</h1>
-        <img src={photos[0]?.url} alt='Photo' />
+        <img width={200} height={200} src={photos[0]?.url} alt='Photo' />
       </div>
     </div>
   )

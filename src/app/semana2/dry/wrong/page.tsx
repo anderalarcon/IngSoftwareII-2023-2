@@ -1,24 +1,11 @@
 'use client'
+import { IPhoto, IPost, IUser } from '@/interfaces/interfaces'
 import React, { useEffect, useState } from 'react'
 
-interface User {
-  name: string
-  username: string
-  email: string
-}
-
-interface Post {
-  title: string
-}
-
-interface Photo {
-  url: string
-}
-
 const page = () => {
-  const [users, setUsers] = useState<User[]>([])
-  const [posts, setPosts] = useState<Post[]>([])
-  const [photos, setPhotos] = useState<Photo[]>([])
+  const [users, setUsers] = useState<IUser[]>([])
+  const [posts, setPosts] = useState<IPost[]>([])
+  const [photos, setPhotos] = useState<IPhoto[]>([])
 
   useEffect(() => {
     const fetchUsers = () => {
@@ -44,7 +31,7 @@ const page = () => {
   }, [])
 
   return (
-    <div className='main'>
+    <div className='container'>
       <div className='users'>
         <h1>Usuarios:</h1>
         <div>
@@ -79,7 +66,7 @@ const page = () => {
       </div>
       <div className='photos'>
         <h1>Fotos:</h1>
-        <img src={photos[0]?.url} alt='Photo' />
+        <img width={200} height={200} src={photos[0]?.url} alt='Photo' />
       </div>
     </div>
   )
