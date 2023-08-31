@@ -1,8 +1,10 @@
 import React from 'react'
 import style from './ProductCard.module.css'
 import { IProduct } from '@/interfaces/interfaces'
-
-const ProductCard = ({ product }: { product: IProduct }) => {
+interface IProductCardProps {
+  product: IProduct
+}
+const ProductCard = ({ product }: IProductCardProps) => {
   return (
     <div className={style.card}>
       <div className={style.image}>
