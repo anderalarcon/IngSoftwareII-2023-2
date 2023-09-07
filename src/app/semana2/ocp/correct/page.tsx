@@ -9,6 +9,7 @@ const page = () => {
       <Button text='Go Next' iconSrc={RightArrow.src}/>
       <Button text='Go Back' iconSrc={LeftArrow.src}/>
       <Button text='Go Next' iconSrc={RightArrow2.src}/>
+      
     </>
   )
 }

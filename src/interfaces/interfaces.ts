@@ -4,7 +4,6 @@ export interface IProduct {
     image: string
     category: string
 }
-console.log('object');
 export interface IUser {
     name: string
     username: string
