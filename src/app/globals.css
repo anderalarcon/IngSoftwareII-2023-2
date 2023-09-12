@@ -50,6 +50,19 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  /* display: block; */
   align-self: center;
+  outline: none;
+}
+
+.primary {
+  background-color: blue;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.styled-input {
+  border: 2px solid blue;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 9px;
 }
