@@ -45,7 +45,11 @@ class Database {
 
     try {
       const result = await this.client?.query(sql);
-      return result;
+      if (result) {
+        return result;
+      } else {
+        throw new Error('La consulta no devolvió ningún resultado.');
+      }
     } catch (error) {
       console.error('Error al ejecutar la consulta:', error);
       throw error;
