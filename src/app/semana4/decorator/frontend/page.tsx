@@ -10,7 +10,7 @@ const Button = ({onClick, clickCount}:IButtonProps) => (
     <button onClick={onClick}>
       Click Me ({clickCount} clicks)
     </button>
-  );
+);
 
 const ClickLoggerDecorator = () => {
   const [clickCount, setClickCount] = useState(0);
